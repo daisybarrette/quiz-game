@@ -20,7 +20,7 @@ function Home() {
 }
 
 // TODO move to separate component file
-function ClueLink({ id }) {
+function ClueLink({ id }: { id: string }) {
 
     return (
         <Link
