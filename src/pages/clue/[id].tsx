@@ -1,37 +1,35 @@
-import Link from 'next/link'
-
-
-function Home() {
+function Clue({ clueData }) {
     return (
         <main className="flex min-h-screen flex-col items-center pt-24 text-center">
-            <h1 className="header text-5xl">Quiz Party</h1>
-
-            <ul className="grid grid-cols-3 grid-rows-3 gap-6 list-none pt-28 text-xl">
-                {CLUES.map(clue => (
-                    <li className="flex" key={clue.id}>
-                        <ClueLink id={clue.id} />
-                    </li>
-                ))}
-            </ul>
+            <h1 className="text-2xl p-10 w-9/12">{`${clueData.clue}`}</h1>
         </main>
     )
 }
 
-// TODO move to separate component file
-function ClueLink({ id }) {
+export async function getStaticPaths() {
+    const paths = CLUES.map(clue => ({
+        params: { id: clue.id }
+    }))
 
-    return (
-        <Link
-            className="py-10 px-12 border-white border-4 hover:bg-yellow-50 hover:text-black"
-            href={`/clue/${id}`}
-
-        >
-            {'?'}
-        </Link>
-    )
+    return {
+        paths,
+        fallback: false,
+    };
 }
 
-// TODO: store elsewhere, eventually pull from API
+export async function getStaticProps({ params }) {
+    const clueData = CLUES.find(clue => clue.id == params.id)
+
+    return {
+        props: {
+            clueData,
+        },
+    };
+}
+
+
+
+
 const CLUES = [
     {
         id: '1',
@@ -85,4 +83,5 @@ const CLUES = [
     },
 ]
 
-export default Home
+
+export default Clue
