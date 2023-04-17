@@ -3,13 +3,20 @@
 @tailwind utilities;
 
 :root {
-  --background: #1812b2;
-  --foreground: #eaefe4;
+    --background: #1812b2;
+    --foreground: #eaefe4;
+    --accent: #751d88;
+    --accent: #852486;
+
 }
 
 body {
-  color: var(--foreground);
-  text-shadow: 1px 1px 1px #000;
+    color: var(--foreground);
+    text-shadow: 1px 1px 1px #000;
 
-  background-color: var(--background);
+    background-color: var(--background);
+}
+
+*::selection {
+    background-color: var(--accent);
 }
