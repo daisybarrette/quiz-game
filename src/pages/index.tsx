@@ -6,7 +6,7 @@ import CLUES from '../definitions/clueData'
 function Home() {
     return (
         <main className="flex min-h-screen flex-col items-center pt-24 text-center">
-            <h1 className="header text-5xl">Quiz Party</h1>
+            <h1 className="header text-5xl">Computer Science Trivia</h1>
 
             <ul className="grid grid-cols-3 grid-rows-3 gap-6 list-none pt-28 text-xl">
                 {CLUES.map(clue => (

@@ -1,53 +1,48 @@
 const CLUES =  [
     {
         id: '1',
-        clue: 'Among the men who have walked on the Moon, his last name is alphabetically first',
-        answer: 'Buzz Aldrin',
+        clue: 'Who invented the Python programming language?',
+        answer: 'Guido van Rossum',
     },
     {
         id: '2',
-        clue: 'Known for more philosophical works, he wrote the play "La Mandragola", in which Florentines are rewarded for immoral actions',
-        answer: 'Machiavelli',
+        clue: 'Windows, macOS, and Linux are examples of what?',
+        answer: 'Operating systems',
     },
     {
         id: '3',
-        clue: 'Number of Canadian provinces that border the Great Lakes',
-        answer: '1',
+        clue: 'What does GUI stand for?',
+        answer: 'Graphical user interface',
     },
     {
         id: '4',
-        clue: 'A part of this marine mammal was prized by medieval folk, who thought it belonged to a unicorn',
-        answer: 'Narwhal',
+        clue: 'What does the "JAM" in JAMStack stand for?',
+        answer: 'JavaScript, API and Markup',
     },
     {
         id: '5',
-        clue: 'Displayed in a new case in September 1997, it is the centerpiece of the Harry Winston Gallery',
-        answer: 'The hope diamond',
+        clue: 'What does CSS stand for?',
+        answer: 'Cascading style sheets',
     },
-
-
-
     {
         id: '6',
-        clue: 'Number of Canadian provinces that border the Great Lakes',
-        answer: '1',
+        clue: 'The number of bits in a "nibble"',
+        answer: '4 (half a byte)',
     },
-
     {
         id: '7',
-        clue: 'Among the men who have walked on the Moon, his last name is alphabetically first',
-        answer: 'Buzz Aldrin',
+        clue: 'Who wrote the first computer program?',
+        answer: 'Ada Lovelace',
     },
-
     {
         id: '8',
-        clue: 'Number of Canadian provinces that border the Great Lakes',
-        answer: '1',
+        clue: 'When was the world wide we invented?',
+        answer: '1991',
     },
     {
         id: '9',
-        clue: 'Displayed in a new case in September 1997, it is the centerpiece of the Harry Winston Gallery',
-        answer: 'The hope diamond',
+        clue: 'What does RAM stand for?',
+        answer: 'Random access memory',
     },
 ]
 
