@@ -36,7 +36,7 @@ const CLUES =  [
     },
     {
         id: '8',
-        clue: 'When was the world wide we invented?',
+        clue: 'When was the world wide web invented?',
         answer: '1991',
     },
     {
