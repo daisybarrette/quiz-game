@@ -17,7 +17,7 @@ const CLUES =  [
     {
         id: '4',
         clue: 'What does the "JAM" in JAMStack stand for?',
-        answer: 'JavaScript, API and Markup',
+        answer: 'JavaScript, APIs, and Markup',
     },
     {
         id: '5',
