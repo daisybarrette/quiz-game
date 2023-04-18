@@ -2,7 +2,7 @@
 
 A trivia game inspired by *Jeopardy!*, built with React, NextJS, and Tailwind.
 
-
+See it here: [https://compsci-quiz-game.netlify.app/](https://compsci-quiz-game.netlify.app/)
 
 To run locally:
 

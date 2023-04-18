@@ -11,19 +11,28 @@ function Home() {
                 <title>Trivia Game | Home</title>
                 <meta property="og:title" content="Trivia Game" key="title" />
             </Head>
-            <main className="flex min-h-screen flex-col items-center pt-24 text-center">
-                <h1 className="header text-5xl">Computer Science Trivia</h1>
 
-                <div className='mt-28'>
-                    <ul className="grid grid-cols-3 grid-rows-3 gap-6 list-none text-xl">
-                        {CLUES.map(clue => (
-                            <li className="flex" key={clue.id}>
-                                <ClueLink id={clue.id} />
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </main>
+            <div className='min-h-screen flex flex-col'>
+                <main className="flex  flex-col items-center text-center">
+                    <h1 className="header text-5xl pt-[calc(2rem_+_5vh+1vw)]">Computer Science Trivia</h1>
+
+                    <div className='mt-28'>
+                        <ul className="grid grid-cols-3 grid-rows-3 gap-6 list-none text-xl">
+                            {CLUES.map(clue => (
+                                <li className="flex" key={clue.id}>
+                                    <ClueLink id={clue.id} />
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </main>
+
+                <footer className='mt-auto self-center'>
+                    <p className='p-6'>
+                        by <a className="hover:bg-yellow-50 hover:text-black" href='https://www.daisybarrette.com/'>Daisy Barrette</a> on <a className="hover:bg-yellow-50 hover:text-black" href='https://github.com/daisybarrette'>GitHub</a>
+                    </p>
+                </footer>
+            </div>
         </>
     )
 }
