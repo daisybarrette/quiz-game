@@ -21,14 +21,12 @@ function Home() {
     )
 }
 
-// TODO move to separate component file
 function ClueLink({ id }: { id: string }) {
-
     return (
         <Link
             className="py-10 px-12 border-white border-4 bg-main-background hover:bg-yellow-50 hover:text-black"
+            aria-label="View clue"
             href={`/clue/${id}`}
-
         >
             {'?'}
         </Link>
