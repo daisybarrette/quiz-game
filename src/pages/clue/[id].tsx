@@ -1,7 +1,8 @@
-import Head from 'next/head'
 import Link from 'next/link'
 
 import CLUES from '../../definitions/clueData'
+import Layout from '../../components/Layout'
+
 
 type ClueType = {
     id: string,
@@ -11,13 +12,11 @@ type ClueType = {
 
 function Clue({ clueData }: { clueData: ClueType }) {
     return (
-        <>
-            <Head>
-                <title>Trivia Game | Clue</title>
-                <meta property="og:title" content="Trivia Game" key="title" />
-            </Head>
-            <main className="flex min-h-screen flex-col items-center pt-24 text-center">
-                <h1 className="text-2xl p-10 w-9/12">{`${clueData.clue}`}</h1>
+        <Layout
+            pageTitle="Trivia Game | Clue"
+        >
+            <main className="flex flex-col items-center text-center">
+            <h1 className="text-2xl mt-36 p-10 w-9/12">{`${clueData.clue}`}</h1>
 
                 <Link
                     className="py-8 px-10 border-white border-4 bg-main-background hover:bg-yellow-50 hover:text-black"
@@ -26,7 +25,7 @@ function Clue({ clueData }: { clueData: ClueType }) {
                     {'Return'}
                 </Link>
             </main>
-        </>
+        </Layout>
     )
 }
 
