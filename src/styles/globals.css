@@ -7,14 +7,16 @@
     --foreground: #eaefe4;
     --accent: #751d88;
     --accent: #852486;
-
 }
 
 body {
     color: var(--foreground);
     text-shadow: 1px 1px 1px #000;
 
-    background-color: var(--background);
+    background: url(../../public/mesh-352.png) var(--background);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 *::selection {
