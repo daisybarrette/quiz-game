@@ -25,7 +25,7 @@ function Clue({ clueData }: { clueData: ClueType }) {
                     className="flex flex-col justify-center w-[calc(12rem_+_20vw)] h-[calc(8rem_+_20vh)]"
                 >
                     <button
-                        className={`${hasBeenClicked ? 'hidden' : 'block'} py-8 px-10 border-white border-4 bg-main-background hover:bg-yellow-50 hover:text-black`}
+                        className={`${hasBeenClicked ? 'hidden' : 'block'} py-8 px-10 border-white border-4 bg-dark-blue hover:bg-yellow-50 hover:text-black`}
                         type="button"
                         onClick={() => setHasBeenClicked(true)}
                     >
@@ -38,7 +38,7 @@ function Clue({ clueData }: { clueData: ClueType }) {
                 </div>
 
                 <Link
-                    className="py-8 px-10 mt-8 border-white border-4 bg-main-background hover:bg-yellow-50 hover:text-black"
+                    className="py-8 px-10 mt-8 border-white border-4 bg-dark-blue hover:bg-yellow-50 hover:text-black"
                     href={`/`}
                 >
                     {'Return'}

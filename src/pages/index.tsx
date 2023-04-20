@@ -27,9 +27,10 @@ function Home() {
 }
 
 function ClueLink({ id }: { id: string }) {
+    const value = `$${id}00`
     return (
         <Link
-            className="py-10 px-12 border-white border-4 bg-main-background hover:bg-yellow-50 hover:text-black"
+            className="py-8 px-10 border-white border-4 bg-dark-blue font-bold text-light-yellow hover:bg-white hover:text-black"
             aria-label="View clue"
             href={`/clue/${id}`}
         >
