@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Link from 'next/link'
 
 import CLUES from '../../definitions/clueData'
 import Layout from '../../components/Layout'
+import PlayerContext from '../../components/PlayerContext'
+
 
 
 type ClueType = {
@@ -13,6 +15,7 @@ type ClueType = {
 
 function Clue({ clueData }: { clueData: ClueType }) {
     const [hasBeenClicked, setHasBeenClicked] = useState(false)
+    // const
 
     return (
         <Layout
