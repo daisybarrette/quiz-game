@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .text-shadow-none {
+        text-shadow: none;
+    }
+}
+
 :root {
     --background: #1812b2;
     --foreground: #eaefe4;
@@ -25,4 +35,9 @@ html {
 
 *::selection {
     background-color: var(--accent);
+}
+
+h1.main-title {
+    font-family: 'Bowlby One SC', cursive;
+    text-shadow: 1px 1px 1px #000;
 }

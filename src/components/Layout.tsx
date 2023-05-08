@@ -19,7 +19,7 @@ const Layout = ({ pageTitle, children }: LayoutProps) => (
 
             <footer className='mt-auto self-center'>
                 <p className='p-6'>
-                    by <a className="hover:bg-yellow-50 hover:text-black" href='https://www.daisybarrette.com/'>Daisy Barrette</a> on <a className="hover:bg-yellow-50 hover:text-black" href='https://github.com/daisybarrette'>GitHub</a>
+                    by <a className="underline hover:no-underline hover:bg-yellow-50 hover:text-black" href='https://www.daisybarrette.com/'>Daisy Barrette</a> on <a className="underline hover:no-underline hover:bg-yellow-50 hover:text-black" href='https://github.com/daisybarrette/quiz-game'>GitHub</a>
                 </p>
             </footer>
         </div>

@@ -1,10 +1,9 @@
 import React, { useState, useContext } from 'react'
-import Link from 'next/link'
 
 import CLUES from '../../definitions/clueData'
 import Layout from '../../components/Layout'
+import PrimaryLink, { primaryLinkStyles } from '../../components/PrimaryLink'
 import PlayerContext from '../../components/PlayerContext'
-
 
 
 type ClueType = {
@@ -28,7 +27,7 @@ function Clue({ clueData }: { clueData: ClueType }) {
                     className="flex flex-col justify-center w-[calc(12rem_+_20vw)] h-[calc(8rem_+_20vh)]"
                 >
                     <button
-                        className={`${hasBeenClicked ? 'hidden' : 'block'} py-8 px-10 border-white border-4 bg-dark-blue hover:bg-yellow-50 hover:text-black`}
+                        className={`${hasBeenClicked ? 'hidden' : 'block'} py-8 px-10 ${primaryLinkStyles}`}
                         type="button"
                         onClick={() => setHasBeenClicked(true)}
                     >
@@ -40,12 +39,12 @@ function Clue({ clueData }: { clueData: ClueType }) {
                     </p>
                 </div>
 
-                <Link
-                    className="py-8 px-10 mt-8 border-white border-4 bg-dark-blue hover:bg-yellow-50 hover:text-black"
+                <PrimaryLink
+                    customStyles="mt-8 py-8 px-10"
                     href={`/`}
                 >
                     {'Return'}
-                </Link>
+                </PrimaryLink>
             </main>
         </Layout>
     )
