@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import Link from 'next/link'
 
 import CLUES from '../../definitions/clueData'
 import Layout from '../../components/Layout'
+import PrimaryLink from '../../components/PrimaryLink'
 
 
 type ClueType = {
@@ -37,12 +37,12 @@ function Clue({ clueData }: { clueData: ClueType }) {
                     </p>
                 </div>
 
-                <Link
-                    className="mt-8 py-8 px-10 shadow-inner shadow-black border-black border-2 bg-dark-blue font-bold text-light-yellow hover:bg-white hover:text-black hover:text-shadow-none"
+                <PrimaryLink
+                    customStyles="mt-8 py-8 px-10"
                     href={`/`}
                 >
                     {'Return'}
-                </Link>
+                </PrimaryLink>
             </main>
         </Layout>
     )
