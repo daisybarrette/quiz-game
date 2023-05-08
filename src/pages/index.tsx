@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import CLUES from '../definitions/clueData'
 import Layout from '../components/Layout'
+import PrimaryLink from '../components/PrimaryLink'
 
 
 function Home() {
@@ -30,13 +31,13 @@ function Home() {
 function ClueLink({ id }: { id: string }) {
     const value = `$${id}00`
     return (
-        <Link
-            className="w-full py-[calc(0.7rem_+_2vw)] shadow-inner shadow-black border-black border-2 bg-dark-blue font-bold text-light-yellow hover:bg-white hover:text-black"
+        <PrimaryLink
+            customStyles="w-full py-[calc(0.7rem_+_2vw)]"
             aria-label="View clue"
             href={`/clue/${id}`}
         >
             {value}
-        </Link>
+        </PrimaryLink>
     )
 }
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import CLUES from '../../definitions/clueData'
 import Layout from '../../components/Layout'
-import PrimaryLink from '../../components/PrimaryLink'
+import PrimaryLink, { primaryLinkStyles } from '../../components/PrimaryLink'
 
 
 type ClueType = {
@@ -25,7 +25,7 @@ function Clue({ clueData }: { clueData: ClueType }) {
                     className="flex flex-col justify-center w-[calc(12rem_+_20vw)] h-[calc(8rem_+_20vh)]"
                 >
                     <button
-                        className={`${hasBeenClicked ? 'hidden' : 'block'} py-8 px-10 shadow-inner shadow-black border-black border-2 bg-dark-blue font-bold text-light-yellow hover:bg-white hover:text-black`}
+                        className={`${hasBeenClicked ? 'hidden' : 'block'} py-8 px-10 ${primaryLinkStyles}`}
                         type="button"
                         onClick={() => setHasBeenClicked(true)}
                     >
