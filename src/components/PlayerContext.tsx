@@ -1,9 +1,24 @@
 import { createContext } from 'react';
 
 
-export const PlayerContext = createContext({
-    gameState: {},
-    setGameState: (data: any) => { },
-    // setGameState: (setGameStateFunc: (value: string) => void) => { },
+type GameStateType = {
+    unanswered: string[],
+    correct: string[],
+    incorrect: string[],
+}
+
+type PlayerContextType = {
+    gameState: GameStateType,
+    setGameState: (data: any) => void,
+}
+
+
+export const PlayerContext = createContext<PlayerContextType>({
+    gameState: {
+        unanswered: [],
+        correct: [],
+        incorrect: [],
+    },
+    setGameState: (data: GameStateType) => { },
 });
 

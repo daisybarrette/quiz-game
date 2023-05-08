@@ -34,7 +34,6 @@ function Clue({ clueData }: { clueData: ClueType }) {
                             setHasBeenClicked(true)
                             setGameState({
                                 ...gameState,
-                                clueTest: 'answered',
                             })
                         }}
                     >
@@ -50,15 +49,29 @@ function Clue({ clueData }: { clueData: ClueType }) {
                         onClick={() => {
                             const updatedGameState = {
                                 ...gameState,
-                                unansweredClues: gameState.unansweredClues.filter(id => id === clueData.id),
-                                answeredClues: [...gameState.answeredClues, clueData.id]
-
+                                unanswered: gameState.unanswered.filter(id => id !== clueData.id),
+                                correct: [...gameState.correct, clueData.id],
                             }
 
                             setGameState(updatedGameState)
                         }}
                     >
-                        {'mark answered'}
+                        {'Right'}
+                    </button>
+
+                    <button
+                        className={`${hasBeenClicked ? 'block' : 'hidden'} py-8 px-10 ${primaryLinkStyles}`}
+                        onClick={() => {
+                            const updatedGameState = {
+                                ...gameState,
+                                unanswered: gameState.unanswered.filter(id => id !== clueData.id),
+                                incorrect: [...gameState.incorrect, clueData.id],
+                            }
+
+                            setGameState(updatedGameState)
+                        }}
+                    >
+                        {'Wrong'}
                     </button>
                 </div>
 

@@ -7,7 +7,7 @@ import { PlayerContext } from '../components/PlayerContext'
 
 
 function Home() {
-    const { gameState, setGameState } = useContext(PlayerContext);
+    const { gameState, } = useContext(PlayerContext);
     return (
         <Layout
             pageTitle="Trivia Game | Home"
@@ -21,7 +21,7 @@ function Home() {
                             <li className="flex w-full shadow-md shadow-black" key={clue.id}>
                                 <ClueLink
                                     id={clue.id}
-                                    isAnswered={gameState.answeredClues.includes(clue.id)}
+                                    isAnswered={!gameState.unanswered.includes(clue.id)}
                                 />
                             </li>
                         ))}
