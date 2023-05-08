@@ -3,7 +3,7 @@ import React, { useState, useContext } from 'react'
 import CLUES from '../../definitions/clueData'
 import Layout from '../../components/Layout'
 import PrimaryLink, { primaryLinkStyles } from '../../components/PrimaryLink'
-import PlayerContext from '../../components/PlayerContext'
+import { PlayerContext } from '../../components/PlayerContext'
 
 
 type ClueType = {
@@ -14,7 +14,8 @@ type ClueType = {
 
 function Clue({ clueData }: { clueData: ClueType }) {
     const [hasBeenClicked, setHasBeenClicked] = useState(false)
-    // const
+
+    const { gameState, setGameState } = useContext(PlayerContext);
 
     return (
         <Layout
@@ -29,7 +30,13 @@ function Clue({ clueData }: { clueData: ClueType }) {
                     <button
                         className={`${hasBeenClicked ? 'hidden' : 'block'} py-8 px-10 ${primaryLinkStyles}`}
                         type="button"
-                        onClick={() => setHasBeenClicked(true)}
+                        onClick={() => {
+                            setHasBeenClicked(true)
+                            setGameState({
+                                ...gameState,
+                                clueTest: 'answered',
+                            })
+                        }}
                     >
                         {'Reveal answer'}
                     </button>
@@ -37,6 +44,22 @@ function Clue({ clueData }: { clueData: ClueType }) {
                     <p className={`${hasBeenClicked ? 'block' : 'hidden'} text-xl`}>
                         {`${clueData.answer}`}
                     </p>
+
+                    <button
+                        className={`${hasBeenClicked ? 'block' : 'hidden'} py-8 px-10 ${primaryLinkStyles}`}
+                        onClick={() => {
+                            const updatedGameState = {
+                                ...gameState,
+                                unansweredClues: gameState.unansweredClues.filter(id => id === clueData.id),
+                                answeredClues: [...gameState.answeredClues, clueData.id]
+
+                            }
+
+                            setGameState(updatedGameState)
+                        }}
+                    >
+                        {'mark answered'}
+                    </button>
                 </div>
 
                 <PrimaryLink

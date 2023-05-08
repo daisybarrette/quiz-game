@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import React, { useContext } from 'react'
 
 import CLUES from '../definitions/clueData'
 import Layout from '../components/Layout'
@@ -7,6 +7,7 @@ import { PlayerContext } from '../components/PlayerContext'
 
 
 function Home() {
+    const { gameState, setGameState } = useContext(PlayerContext);
     return (
         <Layout
             pageTitle="Trivia Game | Home"
@@ -18,22 +19,27 @@ function Home() {
                     <ul className="m-auto min-w-[40%] max-w-xs grid grid-cols-3 grid-rows-3 gap-6 auto-cols-fr justify-items-center list-none text-xl">
                         {CLUES.map(clue => (
                             <li className="flex w-full shadow-md shadow-black" key={clue.id}>
-                                <ClueLink id={clue.id} />
+                                <ClueLink
+                                    id={clue.id}
+                                    isAnswered={gameState.answeredClues.includes(clue.id)}
+                                />
                             </li>
                         ))}
                     </ul>
                 </div>
             </main>
         </Layout >
-
     )
 }
 
-function ClueLink({ id }: { id: string }) {
+function ClueLink({ id, isAnswered }: { id: string, isAnswered: boolean }) {
     const value = `$${id}00`
+    const spacingStyles = "w-full py-[calc(0.7rem_+_2vw)]"
+    const answeredStyles = isAnswered ? 'bg-yellow-500' : ''
+
     return (
         <PrimaryLink
-            customStyles="w-full py-[calc(0.7rem_+_2vw)]"
+            customStyles={`${spacingStyles} ${answeredStyles}`}
             aria-label="View clue"
             href={`/clue/${id}`}
         >
