@@ -13,7 +13,7 @@ type ClueType = {
 }
 
 function Clue({ clueData }: { clueData: ClueType }) {
-    const [hasBeenClicked, setHasBeenClicked] = useState(false)
+    const [hasRevealBeenClicked, sethasRevealBeenClicked] = useState(false)
 
     const { gameState, setGameState } = useContext(PlayerContext);
 
@@ -28,10 +28,10 @@ function Clue({ clueData }: { clueData: ClueType }) {
                     className="flex flex-col justify-center w-[calc(12rem_+_20vw)] h-[calc(8rem_+_20vh)]"
                 >
                     <button
-                        className={`${hasBeenClicked ? 'hidden' : 'block'} py-8 px-10 ${primaryLinkStyles}`}
+                        className={`${hasRevealBeenClicked ? 'hidden' : 'block'} py-8 px-10 ${primaryLinkStyles}`}
                         type="button"
                         onClick={() => {
-                            setHasBeenClicked(true)
+                            sethasRevealBeenClicked(true)
                             setGameState({
                                 ...gameState,
                             })
@@ -40,12 +40,14 @@ function Clue({ clueData }: { clueData: ClueType }) {
                         {'Reveal answer'}
                     </button>
 
-                    <p className={`${hasBeenClicked ? 'block' : 'hidden'} text-xl`}>
+                    <p className={`${hasRevealBeenClicked ? 'block' : 'hidden'} text-xl`}>
                         {`${clueData.answer}`}
                     </p>
+                </div>
 
+                <div className='flex items-center  h-[calc(1rem_+_8vh)]'>
                     <button
-                        className={`${hasBeenClicked ? 'block' : 'hidden'} py-8 px-10 ${primaryLinkStyles}`}
+                        className={`${hasRevealBeenClicked && gameState.unanswered.includes(clueData.id) ? 'block' : 'hidden'} py-8 px-10 ${primaryLinkStyles}`}
                         onClick={() => {
                             const updatedGameState = {
                                 ...gameState,
@@ -60,7 +62,7 @@ function Clue({ clueData }: { clueData: ClueType }) {
                     </button>
 
                     <button
-                        className={`${hasBeenClicked ? 'block' : 'hidden'} py-8 px-10 ${primaryLinkStyles}`}
+                        className={`${hasRevealBeenClicked && gameState.unanswered.includes(clueData.id) ? 'block' : 'hidden'} py-8 px-10 ${primaryLinkStyles}`}
                         onClick={() => {
                             const updatedGameState = {
                                 ...gameState,
@@ -73,6 +75,10 @@ function Clue({ clueData }: { clueData: ClueType }) {
                     >
                         {'Wrong'}
                     </button>
+
+                    <p className={`${hasRevealBeenClicked && !gameState.unanswered.includes(clueData.id) ? 'block' : 'hidden'} text-xl`}>
+                        {`Answer marked ${gameState.correct.includes(clueData.id) ? 'correct' : 'incorrect'}`}
+                    </p>
                 </div>
 
                 <PrimaryLink
