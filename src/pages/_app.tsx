@@ -13,8 +13,6 @@ export default function App({ Component, pageProps }: AppProps) {
         incorrect: [],
     })
 
-    console.table(gameState)
-
     return (
         <PlayerContext.Provider value={{
             gameState: gameState,

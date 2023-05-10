@@ -14,7 +14,6 @@ type ClueType = {
 
 function Clue({ clueData }: { clueData: ClueType }) {
     const [hasRevealBeenClicked, sethasRevealBeenClicked] = useState(false)
-
     const { gameState, setGameState } = useContext(PlayerContext);
 
     return (

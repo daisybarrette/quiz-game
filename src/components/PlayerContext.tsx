@@ -12,7 +12,6 @@ type PlayerContextType = {
     setGameState: (data: any) => void,
 }
 
-
 export const PlayerContext = createContext<PlayerContextType>({
     gameState: {
         unanswered: [],
