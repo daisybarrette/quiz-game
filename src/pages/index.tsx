@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 
 import CLUES from '../definitions/clueData'
 import Layout from '../components/Layout'
-import PrimaryLink from '../components/PrimaryLink'
+import PrimaryLink, { primaryLinkStyles } from '../components/PrimaryLink'
 import { PlayerContext } from '../components/PlayerContext'
 
 
@@ -35,16 +35,20 @@ function Home() {
 function ClueLink({ id, isAnswered }: { id: string, isAnswered: boolean }) {
     const value = `$${id}00`
     const spacingStyles = "w-full py-[calc(0.7rem_+_2vw)]"
-    const answeredStyles = isAnswered ? 'bg-yellow-500' : ''
+    const answeredStyles = 'shadow-inner shadow-black bg-dark-blue'
 
     return (
-        <PrimaryLink
-            customStyles={`${spacingStyles} ${answeredStyles}`}
+        isAnswered ? (
+            <div className={`${spacingStyles} ${answeredStyles}`}/>
+        )
+        :
+        (<PrimaryLink
+            customStyles={spacingStyles}
             aria-label="View clue"
             href={`/clue/${id}`}
         >
             {value}
-        </PrimaryLink>
+        </PrimaryLink>)
     )
 }
 
