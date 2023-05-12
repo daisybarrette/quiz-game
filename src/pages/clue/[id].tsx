@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 
 import CLUES from '../../definitions/clueData'
 import Layout from '../../components/Layout'
 import PrimaryLink, { primaryLinkStyles } from '../../components/PrimaryLink'
+import { PlayerContext } from '../../components/PlayerContext'
 
 
 type ClueType = {
@@ -12,28 +13,70 @@ type ClueType = {
 }
 
 function Clue({ clueData }: { clueData: ClueType }) {
-    const [hasBeenClicked, setHasBeenClicked] = useState(false)
+    const [hasRevealBeenClicked, sethasRevealBeenClicked] = useState(false)
+    const { gameState, setGameState } = useContext(PlayerContext);
 
     return (
         <Layout
             pageTitle="Trivia Game | Clue"
         >
             <main className="flex flex-col items-center text-center">
-                <h1 className="text-2xl mt-24 p-10 w-9/12">{`${clueData.clue}`}</h1>
+                <h1 className="mt-[calc(1rem_+_10vh+5vw)] w-9/12 text-2xl ">{`${clueData.clue}`}</h1>
 
                 <div
-                    className="flex flex-col justify-center w-[calc(12rem_+_20vw)] h-[calc(8rem_+_20vh)]"
+                    className="flex flex-col justify-center w-[calc(12rem_+_20vw)] h-[calc(4rem_+_18vh)]"
                 >
                     <button
-                        className={`${hasBeenClicked ? 'hidden' : 'block'} py-8 px-10 ${primaryLinkStyles}`}
+                        className={`${hasRevealBeenClicked ? 'hidden' : 'block'} py-8 px-10 ${primaryLinkStyles}`}
                         type="button"
-                        onClick={() => setHasBeenClicked(true)}
+                        onClick={() => {
+                            sethasRevealBeenClicked(true)
+                            setGameState({
+                                ...gameState,
+                            })
+                        }}
                     >
                         {'Reveal answer'}
                     </button>
 
-                    <p className={`${hasBeenClicked ? 'block' : 'hidden'} text-xl`}>
+                    <p className={`${hasRevealBeenClicked ? 'block' : 'hidden'} text-xl`}>
                         {`${clueData.answer}`}
+                    </p>
+                </div>
+
+                <div className='flex items-center h-[calc(1rem_+_8vh)]'>
+                    <button
+                        className={`${hasRevealBeenClicked && gameState.unanswered.includes(clueData.id) ? 'block' : 'hidden'} py-8 px-10 ${primaryLinkStyles}`}
+                        onClick={() => {
+                            const updatedGameState = {
+                                ...gameState,
+                                unanswered: gameState.unanswered.filter(id => id !== clueData.id),
+                                correct: [...gameState.correct, clueData.id],
+                            }
+
+                            setGameState(updatedGameState)
+                        }}
+                    >
+                        {'Right'}
+                    </button>
+
+                    <button
+                        className={`${hasRevealBeenClicked && gameState.unanswered.includes(clueData.id) ? 'block' : 'hidden'} py-8 px-10 ${primaryLinkStyles}`}
+                        onClick={() => {
+                            const updatedGameState = {
+                                ...gameState,
+                                unanswered: gameState.unanswered.filter(id => id !== clueData.id),
+                                incorrect: [...gameState.incorrect, clueData.id],
+                            }
+
+                            setGameState(updatedGameState)
+                        }}
+                    >
+                        {'Wrong'}
+                    </button>
+
+                    <p className={`${hasRevealBeenClicked && !gameState.unanswered.includes(clueData.id) ? 'block' : 'hidden'} text-m`}>
+                        {`Answer marked ${gameState.correct.includes(clueData.id) ? 'correct' : 'incorrect'}`}
                     </p>
                 </div>
 
