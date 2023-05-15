@@ -4,6 +4,7 @@ import CLUES from '../../definitions/clueData'
 import Layout from '../../components/Layout'
 import PrimaryLink, { primaryLinkStyles } from '../../components/PrimaryLink'
 import { PlayerContext } from '../../components/PlayerContext'
+import { korinna } from '@/styles/fonts'
 
 
 type ClueType = {
@@ -21,7 +22,7 @@ function Clue({ clueData }: { clueData: ClueType }) {
             pageTitle="Trivia Game | Clue"
         >
             <main className="flex flex-col items-center text-center">
-                <h1 className="mt-[calc(1rem_+_10vh+5vw)] w-9/12 text-2xl ">{`${clueData.clue}`}</h1>
+                <h1 className={`${korinna.className} uppercase mt-[calc(1rem_+_10vh+5vw)] w-9/12 text-2xl`}>{`${clueData.clue}`}</h1>
 
                 <div
                     className="flex flex-col justify-center w-[calc(12rem_+_20vw)] h-[calc(4rem_+_18vh)]"

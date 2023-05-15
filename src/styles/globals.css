@@ -44,6 +44,5 @@ html {
 }
 
 h1.main-title {
-    font-family: 'Bowlby One SC', cursive;
-    text-shadow: 1px 1px 1px #000;
+    text-shadow: 3px 3px 3px #000;
 }
