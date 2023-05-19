@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
+import { gyparody } from '../styles/fonts';
 
 import CLUES from '../definitions/clueData'
 import Layout from '../components/Layout'
-import PrimaryLink, { primaryLinkStyles } from '../components/PrimaryLink'
+import PrimaryLink from '../components/PrimaryLink'
 import { PlayerContext } from '../components/PlayerContext'
 
 
@@ -13,7 +14,7 @@ function Home() {
             pageTitle="Trivia Game | Home"
         >
             <main className="flex flex-col items-center text-center">
-                <h1 className="main-title header text-5xl py-[calc(2rem_+_2vh+1vw)]">Computer Science Trivia</h1>
+                <h1 className={`${gyparody.className} main-title header text-6xl py-[calc(2rem_+_2vh+1vw)]`}>Trivia!</h1>
 
                 <div className='w-full mt-2.5 text-center p-2.5'>
                     <ul className="m-auto min-w-[40%] max-w-xs grid grid-cols-3 grid-rows-3 gap-6 auto-cols-fr justify-items-center list-none text-xl">
