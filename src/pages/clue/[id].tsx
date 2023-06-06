@@ -11,6 +11,7 @@ type ClueType = {
     id: string,
     clue: string,
     answer: string,
+    value: number,
 }
 
 function Clue({ clueData }: { clueData: ClueType }) {
