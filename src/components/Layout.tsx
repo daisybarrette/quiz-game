@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import Head from 'next/head'
 
 import { PlayerContext } from './PlayerContext'
+import CLUES from '@/definitions/clueData'
 
 type LayoutProps = {
     pageTitle: string;
@@ -11,9 +12,19 @@ type LayoutProps = {
 const Layout = ({ pageTitle, children }: LayoutProps) => {
     const { gameState, } = useContext(PlayerContext);
 
-    const scoreMessage = gameState.correct.length === 0 && gameState.incorrect.length === 0
-        ? 'No answers yet'
-        : `Correct: ${gameState.correct.length} Incorrect: ${gameState.incorrect.length}`
+    const correctSum = gameState.correct?.reduce(
+        (acc, currentClueId) => acc + (CLUES.find(clue => clue.id === currentClueId)?.value ?? 0),
+        0,
+    ) ?? 0
+
+    const incorrectSum = gameState.incorrect?.reduce(
+        (acc, currentClueId) => acc + (CLUES.find(clue => clue.id === currentClueId)?.value ?? 0),
+        0,
+    ) ?? 0
+
+    const score = correctSum - incorrectSum
+
+    const scoreMessage = `YOUR SCORE: $${score}`
 
     return (
         <>
