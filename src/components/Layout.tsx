@@ -24,7 +24,9 @@ const Layout = ({ pageTitle, children }: LayoutProps) => {
 
     const score = correctSum - incorrectSum
 
-    const scoreMessage = `YOUR SCORE: $${score}`
+    const scoreMessage = score < 0
+        ? `YOUR SCORE: -$${Math.abs(score)}`
+        : `YOUR SCORE: $${score}`
 
     return (
         <>
