@@ -34,7 +34,7 @@ function Home() {
 }
 
 function ClueLink({ id, isAnswered }: { id: string, isAnswered: boolean }) {
-    const value = `$${id}00`
+    const value = `$${CLUES.find(clue => clue.id === id)?.value}`
     const spacingStyles = "w-full py-[calc(0.7rem_+_2vw)]"
     const answeredStyles = 'shadow-inner shadow-black bg-dark-blue'
 
